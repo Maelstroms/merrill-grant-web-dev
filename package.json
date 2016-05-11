@@ -14,7 +14,7 @@
     "start": "node server.js"
   },
   "author": "Jose G. Annunziato",
-  "license": "ISC"
+  "license": "ISC",
   "keywords": [
     "OpenShift",
     "Node.js",
