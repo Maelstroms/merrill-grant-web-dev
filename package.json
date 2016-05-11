@@ -31,5 +31,5 @@
     "npm": ">= 1.0.0"
   },
   "bundleDependencies": [],
-  "private": true,
+  "private": true
 }
