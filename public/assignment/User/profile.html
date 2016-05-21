@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
     <title>Register</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -10,16 +13,21 @@
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <div class="navbar-brand">
+        <div class="navbar-footer">
+            <a class="navbar-brand" href="#">
                 Profile
-                <a href="profile.html">
-                    <scan class="glyphicon glyphicon-ok"></scan>
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="profile.html" class="navbar-link">
+                      <span class="glyphicon glyphicon-ok">
+                      </span>
                 </a>
-            </div>
+            </p>
+
         </div>
     </div>
 </nav>
+
 <form>
     <div class="form-group">
         <label for="exampleInputEmail1">Username</label>
@@ -37,15 +45,20 @@
         <label for="exampleInputPassword1">Last Name</label>
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
     </div>
-    <a type="submit" href="../Website/website-list.html" class="btn btn-default">Applications</a>
-    <a type="submit" href="login.html" class="btn btn-default">Logout</a>
+    <a class="btn btn-primary btn-block"
+       href="../Website/website-list.html">Websites</a>
+    <a class="btn btn-danger btn-block"
+       href="login.html">Logout</a>
 </form>
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                Fixed Bottom
-            </a>
+        <div class="navbar-footer">
+            <p class="navbar-text pull-right">
+                <a href="profile.html" class="navbar-link">
+                      <span class="glyphicon glyphicon-user">
+                      </span>
+                </a>
+            </p>
         </div>
     </div>
 </nav>
