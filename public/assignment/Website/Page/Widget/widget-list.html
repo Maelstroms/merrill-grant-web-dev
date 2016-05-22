@@ -8,61 +8,54 @@
     <link rel="stylesheet" href="../../../CSS/style.css">
 </head>
 <body>
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <div class="navbar-brand">
-                <a href="../page-list.html">
-                    <scan class="glyphicon glyphicon-menu-left"></scan>
-                </a>
+        <div class="navbar-footer">
+            <a class="navbar-brand"href="../page-list.html">
+                <scan class="glyphicon glyphicon-menu-left"></scan>
+            </a>
+            <a class="navbar-brand" href="#">
                 Widgets
-                <a href="widget-choose.html">
-                    <scan class="glyphicon glyphicon-plus"></scan>
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="widget-choose.html" class="navbar-link">
+                      <span class="glyphicon glyphicon-plus">
+                      </span>
                 </a>
-            </div>
+            </p>
         </div>
     </div>
 </nav>
 
+<div class="container">
 
-<div class="container-fluid">
-    <table class="table table-striped">
-        <tbody>
-        <tr>
-            <td><a href="Page/page-list.html">Blogging App</a></td>
-            <td>
-                <a href="page-edit.html">
-                    <scan class="glyphicon glyphicon-cog"></scan>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td><a href="Page/page-list.html">Blogging App</a></td>
-            <td>
-                <a href="page-edit.html">
-                    <scan class="glyphicon glyphicon-cog"></scan>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td><a href="Page/page-list.html">Blogging App</a></td>
-            <td>
-                <a href="page-edit.html">
-                    <scan class="glyphicon glyphicon-cog"></scan>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td><a href="Page/page-list.html">Blogging App</a></td>
-            <td>
-                <a href="page-edit.html">
-                    <scan class="glyphicon glyphicon-cog"></scan>
-                </a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <h1>Bootstrap Grid System</h1>
+
+    <p>
+        Use grid classes to layout page into rows and columns.
+        Use row class to layout the page vertically.
+        Use column family of classes to layout the page horizontally.
+    </p>
+
+    <div class="row">
+        <div class="col-lg-8">
+            There are 12 column classes that set a div's
+            width to 12 different sizes. Column class names are
+            cs-xx-1, cs-xx-2, etc, cs-xx-12.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        <div class="col-lg-3 pull-right">
+            <span class="glyphicon glyphicon-cog">
+            </span>
+            <span class="glyphicon glyphicon-th-list">
+            </span>
+        </div>
+    </div>
+
 </div>
+
+
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-header">
