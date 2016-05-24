@@ -1,14 +1,29 @@
 (function(){
     angular
-        .module(WebAppMaker, {})
+        .module( 'WebAppMaker')
         .config(Config);
 
-    function Config($routProvider){
+    function Config($routeProvider){
         $routeProvider
-            .when("/login", {
-                templateUrl: "/Views/User/login.view.client.html"
+            .when("default", {
+                templateURL:  "/views/User/login.view.client.html"
             })
+            .when("/login", {
+                templateUrl: "/views/User/login.view.client.html"
+            })
+            .when("/", {
+                templateURL:  "/views/User/login.view.client.html"
+            })
+            .when("/register", {
+                templateURL:  "/views/User/register.view.client.html"
+            });
+
     }
-})();/**
- * Created by grantmerrill on 5/23/16.
+
+})();
+
+
+/**
+ *
+
  */
