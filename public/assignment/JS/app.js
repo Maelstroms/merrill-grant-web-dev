@@ -1,8 +1,6 @@
-(function() {
-    angular
-        .module('WebAppMaker', ['route.js']);
+(function(){
+    angular.module("WebAppMaker", ["ngRoute"]);
 })();
-
 
 /*
 ngRoute
