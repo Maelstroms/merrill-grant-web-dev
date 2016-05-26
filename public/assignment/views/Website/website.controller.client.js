@@ -9,22 +9,18 @@
         .controller("WebsiteNewController", WebsiteNewController);
 
     function WebsiteListController($routingParams) {
-        var vm = this;
-        var id = $routeParams["id"];
 
-        function init() {
-            for(var i in users) {
-                if(users[i]._id === id) {
-                    vm.user = angular.copy(users[i]);
-                    index = i;
-                }
-            }
-        }
-        init();
     }
     
     function WebsiteEditController() {
-        
+        var vm = this;
+        var userId = $routeParams["userId"];
+        var siteId = $routeParams["siteId"];
+        function init() {
+            vm.user = UserService.findUserById(userId);
+            vm.site = WebsiteService.findWebsiteById(siteId);
+        }
+        init();
     }
 
     function WebsiteNewController() {
