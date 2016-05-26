@@ -8,11 +8,14 @@
         .controller("WebsiteEditController", WebsiteEditController)
         .controller("WebsiteNewController", WebsiteNewController);
 
-    function WebsiteListController($routingParams) {
-
+    function WebsiteListController($routeParams) {
+        var vm = this;
+        var userId = $routeParams["userId"];
+        function init() {}
+        init();
     }
     
-    function WebsiteEditController() {
+    function WebsiteEditController($routeParams) {
         var vm = this;
         var userId = $routeParams["userId"];
         var siteId = $routeParams["siteId"];

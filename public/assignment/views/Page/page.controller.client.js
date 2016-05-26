@@ -9,11 +9,11 @@
         .controller("PageNewController", PageNewController);
 
 
-    function PageListController() {
+    function PageListController($routeParams) {
         var vm = this;
     }
 
-    function PageEditController() {
+    function PageEditController($routeParams) {
         var vm = this;
         var userId = $routeParams["userId"];
         var siteId = $routeParams["siteId"];
@@ -25,7 +25,7 @@
         }
         init();
     }
-    function PageNewController() {
+    function PageNewController($routeParams) {
         var vm = this;
     }
 })();

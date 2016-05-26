@@ -19,49 +19,19 @@
     </div>
 </nav>
 
-
-<div class="container-fluid">
-    <table class="table table-striped">
-        <tbody>
-        <tr>
-            <td><a href="../views/Page/page-list.html">Blogging App</a></td>
-            <td>
-                <a href="website-edit.html">
-                    <scan class="glyphicon glyphicon-cog"></scan>
-                    <scan class="glyphicon glyphicon-play"></scan>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td><a href="../views/Page/page-list.html">Blogging App</a></td>
-            <td>
-                <a href="website-edit.html">
-                    <scan class="glyphicon glyphicon-cog"></scan>
-                    <scan class="glyphicon glyphicon-play"></scan>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td><a href="../views/Page/page-list.html">Blogging App</a></td>
-            <td>
-                <a href="website-edit.html">
-                    <scan class="glyphicon glyphicon-cog"></scan>
-                    <scan class="glyphicon glyphicon-play"></scan>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td><a href="../views/Page/page-list.html">Blogging App</a></td>
-            <td>
-                <a href="website-edit.html">
-                    <scan class="glyphicon glyphicon-cog"></scan>
-                    <scan class="glyphicon glyphicon-play"></scan>
-                </a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<div class="container">
+    <ul class="list-group">
+        <li ng-repeat="website in model.websites" class="list-group-item">
+            <a href="../Page/page-list.html">{{website.name}}</a>
+            <a href="#/user/{{website.developerId}}/website/{{website._id}}" class="pull-right">
+                <span class="glyphicon glyphicon-cog"></span>
+                <span class="glyphicon glyphicon-play"></span>
+            </a>
+        </li>
+    </ul>
 </div>
+
+
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-footer">
