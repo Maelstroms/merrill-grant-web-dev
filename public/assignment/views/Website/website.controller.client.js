@@ -24,6 +24,15 @@
             vm.site = WebsiteService.findWebsiteById(siteId);
         }
         init();
+
+        vm.updateWebsite = updateWebsite;
+        vm.deleteWebsite = deleteWebsite;
+        function updateWebsite(website) {
+            WebsiteService.updateWebsite(vm.websiteId, website);
+        }
+        function deleteWebsite() {
+            WebsiteService.deleteWebsite(vm.websiteId);
+        }
     }
 
     function WebsiteNewController() {
