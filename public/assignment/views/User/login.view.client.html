@@ -1,5 +1,8 @@
 <a type="submit" href="../../index.html" class="btn btn-default">Back</a>
 <div class="container">
+    <div ng-if="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
     <h1>Login</h1>
 
     <form>
@@ -11,7 +14,7 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
-        <a type="submit" href="#/profile" class="btn btn-primary btn-block">Submit</a>
+        <a ng-click="model.login(username, password)" class="btn btn-primary btn-block">Login</a>
         <a type="submit" href="#/register" class="btn btn-success btn-block">Register</a>
     </form>
 
