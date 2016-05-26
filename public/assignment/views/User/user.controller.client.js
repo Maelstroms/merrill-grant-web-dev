@@ -5,7 +5,8 @@
     angular
         .module("WebAppMaker")
         .controller("LoginController", LoginController)
-        .controller("ProfileController", ProfileController);
+        .controller("ProfileController", ProfileController)
+        .controller("RegisterController", RegisterController);
 
     var users = [
         {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
@@ -53,5 +54,9 @@
                 }
             }
         }
+    }
+    
+    function RegisterController($location) {
+        
     }
 })();

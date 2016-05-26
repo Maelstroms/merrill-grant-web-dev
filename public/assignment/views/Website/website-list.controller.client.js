@@ -7,11 +7,9 @@
         var vm = this;
 
         function init() {
-            var userId = $routeParams.userId;
-            vm.websites = WebsiteService.findWebsitesForUser(userId);
+            var uid = $routeParams.uid;
+            vm.websites = WebsiteService.findWebsitesForUser(uid);
         }
         init();
     }
-})();/**
- * Created by grantmerrill on 5/26/16.
- */
+})();
