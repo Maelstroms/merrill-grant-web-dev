@@ -6,8 +6,7 @@
 
     function WebsiteNewController($routeParams, WebsiteService) {
         var vm = this;
-        vm.userId = $routeParams.userId;
-        vm.websiteId = $routeParams.websiteId;
+        vm.route = $routeParams;
 
         function init() {
             vm.website = WebsiteService.findWebsiteById(vm.websiteId);

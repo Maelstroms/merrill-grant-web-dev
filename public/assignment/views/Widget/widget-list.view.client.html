@@ -3,7 +3,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-footer">
-            <a class="navbar-brand" href="../page-list.html">
+            <a class="navbar-brand" href="#/user/{{model.route.uid}}/website/{{model.route.wid}}/page">
                 <scan class="glyphicon glyphicon-menu-left"></scan>
             </a>
             <a class="navbar-brand" href="#">
@@ -21,15 +21,7 @@
 
 <div class="container">
     <div ng-repeat="widget in model.widgets" ng-switch on="widget.widgetType">
-            <div ng-switch-when="HEADING">
-                <ng-include src="'views/widget/widget-heading.view.client.html'"></ng-include>
-            </div>
-            <div ng-switch-when="IMAGE">
-                <ng-include src="'views/widget/widget-image.view.client.html'"></ng-include>
-            </div>
-            <div ng-switch-when="YOUTUBE">
-                <ng-include src="'views/widget/widget-youtube.view.client.html'"></ng-include>
-            </div>
+
         </div>
 </div>
 
