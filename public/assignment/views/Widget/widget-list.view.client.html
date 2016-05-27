@@ -20,15 +20,17 @@
 </nav>
 
 <div class="container">
-    <ul class="list-group">
-        <li ng-repeat="widget in model.widget" class="list-group-item">
-            <a href="../page/page-list.html">{{widget.widgetType}}</a>
-            <a href="#/user/{{website.developerId}}/website/{{website._id}}/page" class="pull-right">
-                <span class="glyphicon glyphicon-cog"></span>
-                <span class="glyphicon glyphicon-play"></span>
-            </a>
-        </li>
-    </ul>
+    <div ng-repeat="widget in model.widgets" ng-switch on="widget.widgetType">
+            <div ng-switch-when="HEADING">
+                <ng-include src="'views/widget/widget-heading.view.client.html'"></ng-include>
+            </div>
+            <div ng-switch-when="IMAGE">
+                <ng-include src="'views/widget/widget-image.view.client.html'"></ng-include>
+            </div>
+            <div ng-switch-when="YOUTUBE">
+                <ng-include src="'views/widget/widget-youtube.view.client.html'"></ng-include>
+            </div>
+        </div>
 </div>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
