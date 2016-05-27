@@ -4,13 +4,10 @@
         .module("WebAppMaker")
         .controller("WidgetEditController", EditWebsiteController);
 
-    function EditWebsiteController($routeParams, WebsiteService) {
+    function EditWebsiteController($routeParams, WidgetService) {
         var vm = this;
-        vm.userId = $routeParams.userId;
-        vm.websiteId = $routeParams.websiteId;
 
         function init() {
-            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
         }
         init();
 

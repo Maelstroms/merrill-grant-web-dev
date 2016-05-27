@@ -3,12 +3,11 @@
         .module("WebAppMaker")
         .controller("WidgetListController", WebsiteListController);
 
-    function WebsiteListController($routeParams, WebsiteService) {
+    function WebsiteListController($routeParams, WidgetService) {
         var vm = this;
 
         function init() {
-            var uid = $routeParams.uid;
-            vm.websites = WebsiteService.findWebsitesForUser(uid);
+
         }
         init();
     }
