@@ -10,7 +10,7 @@
                 Edit Website
             </a>
             <p class="navbar-text pull-right">
-                <a href="website-list.view.client.html" class="navbar-link">
+                <a ng-click="model.updateWebsite(website)">Update</a>
                       <span class="glyphicon glyphicon-ok">
                       </span>
                 </a>
@@ -36,8 +36,7 @@
     </div>
 </form>
 
-<a class="btn btn-danger btn-block"
-   href="website-list.html">Delete</a>
+<a class="btn btn-danger btn-block" ng-click="model.deleteWebsite()">Delete</a>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">

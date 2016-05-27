@@ -13,5 +13,9 @@
         }
         init();
 
+        function createWebsite(userId, website){
+            WebsiteService.createWebsite(userId, website);
+        }
+
     }
 })();

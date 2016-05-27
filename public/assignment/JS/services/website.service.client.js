@@ -45,13 +45,13 @@
         }
 
         function createWebsite(userId, website){
-            websites.push({"_id": website.id, "name": website.name,    "developerId": userId});
+            websites.push({"_id": website._id, "name": website.name,    "developerId": userId});
         }
         function updateWebsite(userId, website){
             
         }
-        function deleteWebsite(userId, website){
-
+        function deleteWebsite(websiteId){
+            websites.splice(websiteId);
         }
     }
 })();
