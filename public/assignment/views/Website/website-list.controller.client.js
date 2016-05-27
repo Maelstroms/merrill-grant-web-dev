@@ -8,6 +8,7 @@
 
         function init() {
             var uid = $routeParams.uid;
+            console.log(uid);
             vm.websites = WebsiteService.findWebsitesForUser(uid);
         }
         init();
