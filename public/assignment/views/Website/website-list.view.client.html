@@ -3,14 +3,14 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-footer">
-            <a class="navbar-brand"href="../views/User/profile.view.client.html">
+            <a class="navbar-brand"href="#/profile/{{model.route.uid}}">
                 <scan class="glyphicon glyphicon-menu-left"></scan>
             </a>
             <a class="navbar-brand" href="website-new.view.client.html">
                 Websites
             </a>
             <p class="navbar-text pull-right">
-                <a href="website-new.view.client.html" class="navbar-link">
+                <a href="#/user/{{model.route.uid}}/website/new" class="navbar-link">
                       <span class="glyphicon glyphicon-plus">
                       </span>
                 </a>
@@ -36,7 +36,7 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="../views/user/profile.view.client.html" class="navbar-link">
+                <a href="#/profile/{{model.route.uid}}" class="navbar-link">
                       <span class="glyphicon glyphicon-user">
                       </span>
                 </a>

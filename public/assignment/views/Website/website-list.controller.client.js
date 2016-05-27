@@ -5,6 +5,7 @@
 
     function WebsiteListController($routeParams, WebsiteService) {
         var vm = this;
+        vm.route = $routeParams;
 
         function init() {
             var uid = $routeParams.uid;
