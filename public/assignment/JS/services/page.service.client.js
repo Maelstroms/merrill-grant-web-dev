@@ -27,12 +27,13 @@
         }
 
         function findPageByWebsiteId(websiteId){
-            for (var i in pages) {
-                if (pages[i].websiteId === websiteId) {
-                    return pages[i];
+            var result = [];
+            for(var i in pages) {
+                if(pages[i].websiteId === websiteId) {
+                    result.push(pages[i]);
                 }
             }
-            return null;
+            return result;
         }
         function findPageById(pageId) {
             for (var i in pages) {
