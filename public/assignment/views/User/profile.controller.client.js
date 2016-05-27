@@ -17,9 +17,9 @@
         function updateUser() {
             var result = UserService.updateUser(vm.user._id, vm.user);
             if(result === true) {
-                vm.success = "User successfully updated";
+                vm.success = "user successfully updated";
             } else {
-                vm.error = "User not found";
+                vm.error = "user not found";
             }
         }
     }
