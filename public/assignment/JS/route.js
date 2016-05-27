@@ -61,7 +61,7 @@
                 controllerAs: "model"
             })
             .when("/user/:uid/website/:wid/page/:pid/widget", {
-                templateUrl: "/assignment/views/Widgetage/widget-list.view.client.html",
+                templateUrl: "/assignment/views/widget/widget-list.view.client.html",
                 controller: "WidgetListController",
                 controllerAs: "model"
             })

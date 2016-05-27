@@ -1,13 +1,15 @@
 (function(){
     angular
         .module("WebAppMaker")
-        .controller("WidgetListController", WebsiteListController);
+        .controller("WidgetListController", WidgetListController);
 
-    function WebsiteListController($routeParams, WidgetService) {
+    function WidgetListController($routeParams, WidgetService) {
         var vm = this;
+        vm.route = $routeParams;
 
         function init() {
-
+            var pid = $routeParams.pid;
+            vm.widget = WidgetService.findWidgetsByPageId(pid);
         }
         init();
     }
