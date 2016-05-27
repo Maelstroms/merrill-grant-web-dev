@@ -21,9 +21,9 @@
 
 <div class="container">
     <ul class="list-group">
-        <li ng-repeat="website in model.websites" class="list-group-item">
-            <a href="../Page/page-list.html">{{website.name}}</a>
-            <a href="#/user/{{website.developerId}}/website/{{website._id}}" class="pull-right">
+        <li ng-repeat="page in model.pages" class="list-group-item">
+            <a href="../Page/page-list.html">{{page.name}}</a>
+            <a href="#/user/{{website.developerId}}/website/{{website._id}}/page/{{page.id}}" class="pull-right">
                 <span class="glyphicon glyphicon-cog"></span>
                 <span class="glyphicon glyphicon-play"></span>
             </a>

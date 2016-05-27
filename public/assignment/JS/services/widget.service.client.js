@@ -5,10 +5,17 @@
 (function() {
     angular.module("WebAppMaker")
         .factory("WidgetService", WidgetService);
-    var pages = [
-        { "_id": "321", "name": "Post 1", "websiteId": "456" },
-        { "_id": "432", "name": "Post 2", "websiteId": "456" },
-        { "_id": "543", "name": "Post 3", "websiteId": "456" }
+    
+    var widgets = [
+        { "_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO"},
+        { "_id": "234", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
+        { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
+            "url": "http://lorempixel.com/400/200/"},
+        { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"},
+        { "_id": "567", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
+        { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
+            "url": "https://youtu.be/AM2Ivdi9c4E" },
+        { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
     ];
 
     function WidgetService(){
@@ -19,9 +26,16 @@
             updateWidget: updateWidget,
             deleteWidget: deleteWidget
         };
+        return api;
 
         function createWidget(pageId, widget){}
-        function findWidgetsByPageId(pageId){}
+        function findWidgetsByPageId(pageId){
+            for (var i in widgets) {
+                if (widgets[i].pageId === pageId) {
+                    return widgets[i];
+                }
+            }
+        }
         function findWidgetById(widgetId){}
         function updateWidget(widgetId, widget){}
         function deleteWidget(widgetId){}
