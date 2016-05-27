@@ -22,13 +22,17 @@
         };
         return api;
 
-        function createPage(websiteId, page){}
+        function createPage(websiteId, page){
+            pages.push({"_id": page.id, "name": page.name, "websiteId": websiteId});
+        }
+
         function findPageByWebsiteId(websiteId){
             for (var i in pages) {
                 if (pages[i].websiteId === websiteId) {
                     return pages[i];
                 }
             }
+            return null;
         }
         function findPageById(pageId) {
             for (var i in pages) {
@@ -36,8 +40,14 @@
                     return pages[i];
                 }
             }
+            return null;
         }
-        function updatePage(pageId, page){}
-        function deletePage(pageId){}
+        function updatePage(pageId, page){
+            deletePage(pageId);
+            pages.push(page);
+        }
+        function deletePage(pageId){
+            pages.splice(pageId);
+        }
     }
 })();

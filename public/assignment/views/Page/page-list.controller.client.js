@@ -12,6 +12,6 @@
             vm.pages = PageService.findPageByWebsiteId(wid);
         }
         init();
-        console.log("got here")
+        console.log("got here");
     }
 })();

@@ -37,9 +37,11 @@
         }
 
         function createUser(user) {
+            
         }
 
         function deleteUser(id) {
+            users.splice(id);
         }
 
         function findUserByUsername(Username) {
