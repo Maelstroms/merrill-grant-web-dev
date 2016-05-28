@@ -1,5 +1,3 @@
-
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-footer">
@@ -10,7 +8,7 @@
                 Widgets
             </a>
             <p class="navbar-text pull-right">
-                <a href="widget-choose.view.client.html" class="navbar-link">
+                <a href=#/user/{{model.route.uid}}/website/{{model.route.wid}}/page/{{model.route.pid}}/widget/new" class="navbar-link">
                       <span class="glyphicon glyphicon-plus">
                       </span>
                 </a>
@@ -21,8 +19,20 @@
 
 <div class="container">
     <div ng-repeat="widget in model.widgets" ng-switch on="widget.widgetType">
-
+        <div ng-switch-when="HEADER">
+            <ng-include src="'views/widget/widget-header.view.client.html'"></ng-include>
         </div>
+        <div ng-switch-when="IMAGE">
+            <ng-include src="'views/widget/widget-image.view.client.html'"></ng-include>
+        </div>
+        <div ng-switch-when="YOUTUBE">
+            <ng-include src="'views/widget/widget-youtube.view.client.html'"></ng-include>
+        </div>
+        <a href="#/user/{{model.route.uid}}/website/{{model.route.wid}}/page/{{model.route.pid}}/widget/{{widget._id    }}" class="pull-right">
+            <span class="glyphicon glyphicon-cog"></span>
+            <span class="glyphicon glyphicon-play"></span>
+        </a>
+    </div>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">

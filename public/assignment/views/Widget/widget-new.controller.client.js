@@ -2,10 +2,11 @@
 (function(){
     angular
         .module("WebAppMaker")
-        .controller("WidgetEditController", EditWebsiteController);
+        .controller("WidgetNewController", WidgetNewController);
 
-    function EditWebsiteController($routeParams, WidgetService) {
+    function WidgetNewController($routeParams, WidgetService) {
         var vm = this;
+        vm.route = $routeParams;
 
         function init() {
         }

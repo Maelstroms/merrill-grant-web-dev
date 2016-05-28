@@ -71,6 +71,7 @@
                 controllerAs: "model"
             })
             .when("/user/:uid/website/:wid/page/:pid/widget/:wgid", {
+                //concious choice for wgid, it's widget Id
                 templateUrl: "/assignment/views/widget/widget-edit.view.client.html",
                 controller: "WidgetEditController",
                 controllerAs: "model"

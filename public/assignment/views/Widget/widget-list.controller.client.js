@@ -17,18 +17,25 @@
         init();
     }
     function HeaderWidgetController(){
+        var vm = this;
+        vm.route = $routeParams;
         function init() {
-
+            console.log($routeParams)
         }
         init();
     }
     function ImageWidgetController(){
+        var vm = this;
+        vm.route = $routeParams;
         function init() {
 
         }
         init();
+
     }
     function YoutubeWidgetController(){
+        var vm = this;
+        vm.route = $routeParams;
         function init() {
 
         }
