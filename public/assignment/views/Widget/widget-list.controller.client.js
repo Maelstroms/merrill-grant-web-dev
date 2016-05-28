@@ -16,15 +16,20 @@
         }
         init();
     }
-    function HeaderWidgetController(){
+    function HeaderWidgetController($routeParams, WidgetService){
         var vm = this;
         vm.route = $routeParams;
+        var widget;
+        vm.dataholder ={};
         function init() {
-            console.log($routeParams)
+            console.log($routeParams);
+            var wgid = $routeParams["wgid"];
+            console.log(widget);
+            vm.header = WidgetService.findWidgetById();
         }
         init();
     }
-    function ImageWidgetController(){
+    function ImageWidgetController($routeParams, WidgetService){
         var vm = this;
         vm.route = $routeParams;
         function init() {
@@ -33,7 +38,7 @@
         init();
 
     }
-    function YoutubeWidgetController(){
+    function YoutubeWidgetController($routeParams, WidgetService){
         var vm = this;
         vm.route = $routeParams;
         function init() {

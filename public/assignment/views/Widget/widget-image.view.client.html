@@ -1,27 +1,27 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-footer">
-            <a class="navbar-brand" href="widget-list.view.client.html">
-                <scan class="glyphicon glyphicon-menu-left"></scan>
-            </a>
-            <a class="navbar-brand" href="#">
-                Widget Edit
-            </a>
-            <p class="navbar-text pull-right">
-                <a href="widget-list.view.client.html" class="navbar-link">
-                      <span class="glyphicon glyphicon-ok">
-                      </span>
-                </a>
-            </p>
-        </div>
-    </div>
-</nav>
 <div ng-switch="model.route.wgid || '_undefined_'">
 
     <div ng-switch-when="'_undefined_'">
         <h3>SPACEX'S REUSABLE ROCKETS</h3>
     </div>
     <div ng-switch-default>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-footer">
+                    <a class="navbar-brand" href="widget-list.view.client.html">
+                        <scan class="glyphicon glyphicon-menu-left"></scan>
+                    </a>
+                    <a class="navbar-brand" href="#">
+                        Widget Edit
+                    </a>
+                    <p class="navbar-text pull-right">
+                        <a href="widget-list.view.client.html" class="navbar-link">
+                      <span class="glyphicon glyphicon-ok">
+                      </span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </nav>
         <form>
             <div class="form-group">
                 <label for="exampleInputEmail1">Name</label>
@@ -46,19 +46,20 @@
             <a type="submit" href="widget-list.view.client.html" class="btn btn-primary btn-block">Upload Image</a>
             <a type="submit" href="widget-list.view.client.html" class="btn btn-danger btn-block">Delete</a>
         </form>
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container-fluid">
+                <div class="navbar-footer">
+                    <p class="navbar-text pull-right">
+                        <a href="../../../views/User/profile.view.client.html" class="navbar-link">
+                      <span class="glyphicon glyphicon-user">
+                      </span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </nav>
     </div>
 </div>
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-footer">
-            <p class="navbar-text pull-right">
-                <a href="../../../views/User/profile.view.client.html" class="navbar-link">
-                      <span class="glyphicon glyphicon-user">
-                      </span>
-                </a>
-            </p>
-        </div>
-    </div>
-</nav>
+
 

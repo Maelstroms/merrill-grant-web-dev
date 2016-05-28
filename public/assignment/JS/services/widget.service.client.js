@@ -41,5 +41,6 @@
         function findWidgetById(widgetId){}
         function updateWidget(widgetId, widget){}
         function deleteWidget(widgetId){}
+        
     }
 })();
