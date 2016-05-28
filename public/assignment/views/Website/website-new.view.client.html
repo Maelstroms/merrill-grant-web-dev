@@ -10,7 +10,7 @@
                 New Website
             </a>
             <p class="navbar-text pull-right">
-                <a ng-click="model.updateWebsite(model.route.uid, website)" class="navbar-link">
+                <a ng-click="model.createWebsite(model.route.uid, website)" class="navbar-link">
                       <span class="glyphicon glyphicon-ok">
                       </span>
                 </a>
@@ -22,11 +22,11 @@
 <form>
     <div class="form-group">
         <label for="websitename">Name</label>
-        <input ng-model="model.website.name" type="text" class="form-control" id="websitename" placeholder="Name">
+        <input ng-model="website.name" type="text" class="form-control" id="websitename" placeholder="Name">
     </div>
     <div class="form-group">
         <label for="websiteDescription">Description</label>
-        <textarea ng-model="model.page.description" type="text" class="form-control" id="websiteDescription" rows="10" placeholder="Description"></textarea>
+        <textarea ng-model="website.description" type="text" class="form-control" id="websiteDescription" rows="10" placeholder="Description"></textarea>
     </div>
 </form>
 

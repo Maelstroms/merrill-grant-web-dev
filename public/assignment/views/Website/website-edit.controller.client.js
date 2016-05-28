@@ -7,11 +7,11 @@
     function EditWebsiteController($routeParams, WebsiteService) {
         var vm = this;
         vm.route = $routeParams;
-        vm.userId = $routeParams.userId;
-        vm.websiteId = $routeParams.websiteId;
+        var websiteId = $routeParams["wid"];
+        vm.updateWebsite = updateWebsite;
 
         function init() {
-            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
+            vm.website = WebsiteService.findWebsiteById(websiteId);
         }
         init();
 
