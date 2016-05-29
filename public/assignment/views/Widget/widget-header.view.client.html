@@ -1,7 +1,28 @@
-
-<div ng-switch="model.route.wgid || '_undefined_' ">
-    <div ng-switch-when="'_undefined_'">
-        <h3>SPACEX'S REUSABLE ROCKETS</h3>
+<div ng-switch="model.route.wgid">
+    <div ng-switch-when="undefined">
+        <div ng-switch="widget.size">
+            <div ng-switch-when="1">
+                <h1>{{widget.text}}</h1>
+            </div>
+            <div ng-switch-when="2">
+                <h2>{{widget.text}}</h2>
+            </div>
+            <div ng-switch-when="3">
+                <h3>{{widget.text}}</h3>
+            </div>
+            <div ng-switch-when="4">
+                <h4>{{widget.text}}</h4>
+            </div>
+            <div ng-switch-when="5">
+                <h5>{{widget.text}}</h5>
+            </div>
+            <div ng-switch-when="6">
+                <h6>{{widget.text}}</h6>
+            </div>
+            <div ng-switch-default>
+                <p>{{widget.text}}</p>
+            </div>
+        </div>
     </div>
     <div ng-switch-default>
         <nav class="navbar navbar-default navbar-fixed-top">
