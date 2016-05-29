@@ -20,17 +20,13 @@
 <div class="container">
     <div ng-repeat="widget in model.widgets" ng-switch on="widget.widgetType">
         <div ng-switch-when="HEADER">
-            <ng-include src="'views/widget/widget-header.view.client.html'"
-                        ng-controller="HeaderWidgetController as headerCntrl"
-                        ng-init="widget"></ng-include>
+            <ng-include src="'views/widget/widget-header.view.client.html'"></ng-include>
         </div>
         <div ng-switch-when="IMAGE">
-            <ng-include src="'views/widget/widget-image.view.client.html'"
-                        ng-controller="ImageWidgetController as imageCntrl"></ng-include>
+            <ng-include src="'views/widget/widget-image.view.client.html'"></ng-include>
         </div>
         <div ng-switch-when="YOUTUBE">
-            <ng-include src="'views/widget/widget-youtube.view.client.html'"
-                        ng-controller="YoutubeWidgetController as youtubeCntrl"></ng-include>
+            <ng-include src="'views/widget/widget-youtube.view.client.html'"></ng-include>
         </div>
         <a href="#/user/{{model.route.uid}}/website/{{model.route.wid}}/page/{{model.route.pid}}/widget/{{widget._id}}" class="pull-right">
             <span class="glyphicon glyphicon-cog"></span>
