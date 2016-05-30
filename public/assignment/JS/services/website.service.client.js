@@ -47,8 +47,14 @@
         function createWebsite(userId, website){
             websites.push({"_id": website._id, "name": website.name,    "developerId": userId});
         }
-        function updateWebsite(userId, website){
-            
+        function updateWebsite(websiteId, website){
+            for (var i in websites) {
+                if (websites[i]._id === websiteId) {
+                    websites[i].name = website.name;
+                    return true;
+                }
+            }
+            return false;
         }
         function deleteWebsite(websiteId){
             websites.splice(websiteId);

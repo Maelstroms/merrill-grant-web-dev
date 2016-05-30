@@ -12,5 +12,13 @@
         }
         init();
 
+        function editWebsite(){
+            var result = WebsiteService.updateWebsite(vm.user._id, vm.user);
+            if(result === true) {
+                vm.success = "user successfully updated";
+            } else {
+                vm.error = "user not found";
+            }
+        }
     }
 })();

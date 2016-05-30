@@ -37,7 +37,7 @@
         }
 
         function createUser(user) {
-            
+            users.push(user);
         }
 
         function deleteUser(id) {

@@ -16,10 +16,20 @@
         init();
 
         function updateWebsite(website) {
-            WebsiteService.updateWebsite(vm.websiteId, website);
+            var result =  WebsiteService.updateWebsite(vm.websiteId, website);
+            if(result === true) {
+                vm.success = "website successfully updated";
+            } else {
+                vm.error = "website not found";
+            }
         }
         function deleteWebsite() {
-            WebsiteService.deleteWebsite(vm.websiteId);
+            var result =  WebsiteService.deleteWebsite(vm.websiteId);
+            if(result === true) {
+                vm.success = "website successfully updated";
+            } else {
+                vm.error = "website not found";
+            }
         }
     }
 })();

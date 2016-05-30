@@ -44,8 +44,13 @@
             return null;
         }
         function updatePage(pageId, page){
-            deletePage(pageId);
-            pages.push(page);
+            for (var i in pages) {
+                if (pages[i]._id === pageId) {
+                    pages[i].name = page.name;
+                    return true;
+                }
+            }
+            return false;
         }
         function deletePage(pageId){
             pages.splice(pageId);
