@@ -14,7 +14,6 @@
         init();
 
         function createWebsite(userId, website){
-            console.log(website);
             WebsiteService.createWebsite(userId, website);
             $location.url("user/"+ vm.route.uid + "/website");
         }
