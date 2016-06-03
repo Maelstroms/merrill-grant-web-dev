@@ -19,5 +19,6 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-require("/assignment/app/app.js")(app);
+var assignment = require("./assignment/app.js")(app);
+assignment(app);
 app.listen(port, ipaddress);

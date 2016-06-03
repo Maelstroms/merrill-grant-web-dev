@@ -1,4 +1,1 @@
-(function() {
-    angular.module("WebAppMaker")
-        .factory("WidgetService", WidgetService);
-})();
+module.exports = function(app) {};
