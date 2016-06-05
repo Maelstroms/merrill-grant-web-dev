@@ -32,7 +32,14 @@ module.exports = function(app) {
         res.json(result);
     }
     function findWidgetById(req, res){
-
+        var id = req.params.widgets;
+        for(var i in widgets) {
+            if(widgets[i]._id === id) {
+                res.send(widgets[i]);
+                return;
+            }
+        }
+        res.send({});
     }
     function updateWidget(req, res){
 

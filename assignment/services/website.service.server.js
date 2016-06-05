@@ -21,22 +21,29 @@ module.exports = function(app) {
 
     function findAllWebsitesForUser(req, res) {
         var userId = req.params.userId;
-        var result = [];
+        var result = [{"_id": "123", "name": "Facebook", "developerId": "456"}];
         for (var w in websites) {
             if (websites[w].developerId === userId) {
                 result.push(websites[w]);
             }
         }
-        res.json(result);
+        if (result) {
+            res.send(result);
+        }
+        else{
+            res.send(400);
+        }
     }
 
     function findWebsiteById(req, res) {
-        for (var i in websites) {
-            if (websites[i]._id === websiteId) {
-                return websites[i];
+        var id = req.params.websiteId;
+        for(var i in websites) {
+            if(websites[i]._id === id) {
+                res.send(websites[i]);
+                return;
             }
         }
-        return null;
+        res.send({});
     }
 
     function updateWebsite(req, res) {

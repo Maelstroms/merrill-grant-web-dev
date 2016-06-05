@@ -5,7 +5,7 @@
     angular.module("WebAppMaker")
         .factory("WebsiteService", WebsiteService);
 
-    function WebsiteService() {
+    function WebsiteService($http) {
 
         var api = {
             createWebsite : createWebsite,
@@ -17,12 +17,14 @@
         return api;
 
         function findWebsiteById(websiteId) {
-            var url = "/api/website/" + id;
+            var url = "/api/website/" + websiteId;
             return $http.get(url);
         }
 
         function findWebsitesForUser(userId) {
-            return $http.get();
+            var url = "/api/user/" + userId + "/website/";
+            console.log(url);
+            return $http.get(url);
         }
 
         function createWebsite(userId, website){

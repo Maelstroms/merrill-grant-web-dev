@@ -26,12 +26,14 @@ module.exports = function(app) {
         res.json(result);
     }
     function findPageById(req, res){
-        for (var i in pages) {
-            if (pages[i]._id === pageId) {
-                return pages[i];
+        var id = req.params.pageId;
+        for(var i in pages) {
+            if(pages[i]._id === id) {
+                res.send(pages[i]);
+                return;
             }
         }
-        return null;
+        res.send({});
     }
     function updatePage(req, res){
         for (var i in pages) {
