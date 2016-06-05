@@ -7,12 +7,10 @@
         var vm = this;
 
         vm.register = function(username, password, passconfirm){
-            console.log("alive");
             if(password === passconfirm) {
                 UserService
                     .createUser(username, password)
                     .then(function (response) {
-                        console.log(response)
                         var user = response.data;
                         if (user._id) {
                             $location.url("/profile/" + user._id);

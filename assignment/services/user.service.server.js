@@ -19,11 +19,11 @@ module.exports = function(app) {
         for(var i in users) {
             if (users[i]._id === id) {
                 users.splice(i, 1);
-                res.send(200);
+                res.sendStatus(200);
                 return;
             }
         }
-        res.send(400);
+        res.sendStatus(400);
     }
 
     function updateUser(req, res) {
@@ -33,11 +33,11 @@ module.exports = function(app) {
             if(users[i]._id === id) {
                 users[i].firstName = newUser.firstName;
                 users[i].lastName = newUser.lastName;
-                res.send(200);
+                res.sendStatus(200);
                 return;
             }
         }
-        res.send(400);
+        res.sendStatus(400);
     }
 
     function createUser(req, res) {
