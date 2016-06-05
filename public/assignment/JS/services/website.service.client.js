@@ -1,6 +1,4 @@
-/**
- * Created by grantmerrill on 5/25/16.
- */
+
 (function(){
     angular.module("WebAppMaker")
         .factory("WebsiteService", WebsiteService);
@@ -27,13 +25,15 @@
         }
 
         function createWebsite(userId, website){
-            return $http.post("/api/website", website);
+            return $http.post("/api/user/"+userId +"/website", website);
         }
         function updateWebsite(websiteId, website){
-            return $http.put();
+            var url = "/api/website/" + websiteId;
+            return $http.put(url,website);
         }
         function deleteWebsite(websiteId){
-            return $http.delete();
+            var url = "/api/website/" + websiteId;
+            return $http.delete(url);
         }
     }
 })();

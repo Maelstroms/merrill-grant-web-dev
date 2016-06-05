@@ -18,7 +18,8 @@
         return api;
 
         function createPage(websiteId, page){
-            return $http.post();
+            var url ="/api/website/"+websiteId+"/page";
+            return $http.post(url, page);
         }
 
         function findPageByWebsiteId(websiteId){
@@ -26,14 +27,16 @@
             return $http.get(url);
         }
         function findPageById(pageId) {
-            var url = "/api/page/" + id;
+            var url = "/api/page/" + pageId;
             return $http.get(url);
         }
         function updatePage(pageId, page){
-            return $http.put();
+            var url = "/api/page/" + pageId;
+            return $http.put(url,page);
         }
         function deletePage(pageId){
-            return $http.delete();
+            var url = "/api/page/" + pageId;
+            return $http.delete(url);
         }
     }
 })();
