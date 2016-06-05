@@ -1,7 +1,7 @@
 /**
  * Created by grantmerrill on 5/25/16.
  */
-(function(){
+(function($http){
     angular.module("WebAppMaker")
         .factory("WebsiteService", WebsiteService);
 
@@ -17,38 +17,22 @@
         return api;
 
         function findWebsiteById(websiteId) {
-            for(var i in websites) {
-                if(websites[i]._id === websiteId) {
-                    return websites[i];
-                }
-            }
-            return null;
+            var url = "/api/website/" + id;
+            return $http.get(url);
         }
 
         function findWebsitesForUser(userId) {
-            var result = [];
-            for(var i in websites) {
-                if(websites[i].developerId === userId) {
-                    result.push(websites[i]);
-                }
-            }
-            return result;
+            return $http.get();
         }
 
         function createWebsite(userId, website){
-            websites.push({"_id": website._id, "name": website.name,    "developerId": userId});
+            return $http.post("/api/website", website);
         }
         function updateWebsite(websiteId, website){
-            for (var i in websites) {
-                if (websites[i]._id === websiteId) {
-                    websites[i].name = website.name;
-                    return true;
-                }
-            }
-            return false;
+            return $http.put();
         }
         function deleteWebsite(websiteId){
-            websites.splice(websiteId);
+            return $http.delete();
         }
     }
 })();

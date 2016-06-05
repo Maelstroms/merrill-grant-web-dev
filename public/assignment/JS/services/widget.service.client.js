@@ -2,7 +2,7 @@
  * Created by grantmerrill on 5/25/16.
  */
 
-(function() {
+(function($http) {
     angular.module("WebAppMaker")
         .factory("WidgetService", WidgetService);
 
@@ -16,19 +16,23 @@
         };
         return api;
 
-        function createWidget(pageId, widget){}
-        function findWidgetsByPageId(pageId){
-            var result = [];
-            for(var i in widgets) {
-                if(widgets[i].pageId === pageId) {
-                    result.push(widgets[i]);
-                }
-            }
-            return result;
+        function createWidget(pageId, widget){
+            return $http.post();
         }
-        function findWidgetById(widgetId){}
-        function updateWidget(widgetId, widget){}
-        function deleteWidget(widgetId){}
+
+        function findWidgetsByPageId(pageId){
+            return $http.get();
+        }
+        function findWidgetById(widgetId){
+            var url = "/api/widget/" + id;
+            return $http.get(url);
+        }
+        function updateWidget(widgetId, widget){
+            return $http.put();
+        }
+        function deleteWidget(widgetId){
+            return $http.delete();
+        }
 
     }
 })();

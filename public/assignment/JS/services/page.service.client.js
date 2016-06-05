@@ -8,7 +8,7 @@
 
 
 
-    function PageService(){
+    function PageService($http){
         var api = {
             createPage : createPage,
             findPageByWebsiteId: findPageByWebsiteId,
@@ -19,37 +19,21 @@
         return api;
 
         function createPage(websiteId, page){
-            pages.push({"_id": page.id, "name": page.name, "websiteId": websiteId});
+            return $http.post();
         }
 
         function findPageByWebsiteId(websiteId){
-            var result = [];
-            for(var i in pages) {
-                if(pages[i].websiteId === websiteId) {
-                    result.push(pages[i]);
-                }
-            }
-            return result;
+            return $http.get();
         }
         function findPageById(pageId) {
-            for (var i in pages) {
-                if (pages[i]._id === pageId) {
-                    return pages[i];
-                }
-            }
-            return null;
+            var url = "/api/page/" + id;
+            return $http.get(url);
         }
         function updatePage(pageId, page){
-            for (var i in pages) {
-                if (pages[i]._id === pageId) {
-                    pages[i].name = page.name;
-                    return true;
-                }
-            }
-            return false;
+            return $http.put();
         }
         function deletePage(pageId){
-            pages.splice(pageId);
+            return $http.delete();
         }
     }
 })();
