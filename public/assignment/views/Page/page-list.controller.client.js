@@ -7,7 +7,6 @@
         var vm = this;
         vm.route = $routeParams;
         function init() {
-            console.log(vm.route.wid);
             PageService
                 .findPageByWebsiteId(vm.route.wid)
                 .then(function(response) {

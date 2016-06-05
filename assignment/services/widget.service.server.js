@@ -29,7 +29,7 @@ module.exports = function(app) {
                 result.push(widgets[wg]);
             }
         }
-        res.json(result);
+        res.send(result);
     }
     function findWidgetById(req, res){
         var id = req.params.widgets;
