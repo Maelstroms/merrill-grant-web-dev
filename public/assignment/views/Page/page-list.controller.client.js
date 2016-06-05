@@ -7,8 +7,13 @@
         var vm = this;
         vm.route = $routeParams;
         function init() {
-            var wid = $routeParams.wid;
-            vm.pages = PageService.findPageByWebsiteId(wid);
+            console.log(vm.route.wid);
+            PageService
+                .findPageByWebsiteId(vm.route.wid)
+                .then(function(response) {
+                    console.log(response);
+                    vm.pages = response.data;
+                });
         }
         init();
 

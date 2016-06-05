@@ -21,7 +21,7 @@ module.exports = function(app) {
 
     function findAllWebsitesForUser(req, res) {
         var userId = req.params.userId;
-        var result = [{"_id": "123", "name": "Facebook", "developerId": "456"}];
+        var result = [];
         for (var w in websites) {
             if (websites[w].developerId === userId) {
                 result.push(websites[w]);

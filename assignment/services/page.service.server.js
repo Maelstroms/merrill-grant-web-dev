@@ -23,7 +23,12 @@ module.exports = function(app) {
                 result.push(pages[p]);
             }
         }
-        res.json(result);
+        if (result) {
+            res.send(result);
+        }
+        else{
+            res.send(400);
+        }
     }
     function findPageById(req, res){
         var id = req.params.pageId;

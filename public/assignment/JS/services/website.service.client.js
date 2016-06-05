@@ -23,7 +23,6 @@
 
         function findWebsitesForUser(userId) {
             var url = "/api/user/" + userId + "/website/";
-            console.log(url);
             return $http.get(url);
         }
 

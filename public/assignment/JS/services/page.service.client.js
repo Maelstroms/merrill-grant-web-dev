@@ -23,7 +23,8 @@
         }
 
         function findPageByWebsiteId(websiteId){
-            return $http.get();
+            var url = "/api/website/"+ websiteId +"/page";
+            return $http.get(url);
         }
         function findPageById(pageId) {
             var url = "/api/page/" + id;
