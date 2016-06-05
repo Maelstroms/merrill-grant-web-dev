@@ -4,11 +4,7 @@ module.exports = function(app) {
     require("./services/website.service.server.js")(app);
     require("./services/page.service.server.js")(app);
     require("./services/widget.service.server.js")(app);
-
-    app.get("/say/:something", function (req, res) {
-        var msg = req.params['something'];
-        res.send({message: msg});
-    });
+    
 
     app.get("/users/:id", function(req, res){
         var id = req.params.id;

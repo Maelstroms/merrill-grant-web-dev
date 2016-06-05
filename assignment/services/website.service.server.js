@@ -1,4 +1,4 @@
-module.exports = function(app) {
+module.exports = function (app) {
 
     var websites = [
         {"_id": "123", "name": "Facebook", "developerId": "456"},
@@ -27,18 +27,15 @@ module.exports = function(app) {
                 result.push(websites[w]);
             }
         }
-        if (result) {
-            res.send(result);
-        }
-        else{
-            res.send(400);
-        }
+
+        res.send(result);
+
     }
 
     function findWebsiteById(req, res) {
         var id = req.params.websiteId;
-        for(var i in websites) {
-            if(websites[i]._id === id) {
+        for (var i in websites) {
+            if (websites[i]._id === id) {
                 res.send(websites[i]);
                 return;
             }
@@ -58,7 +55,7 @@ module.exports = function(app) {
 
     function deleteWebsite(req, res) {
         var id = req.params.websiteId;
-        for(var i in websites) {
+        for (var i in websites) {
             if (websites[i]._id === id) {
                 websites.splice(i, 1);
                 res.send(200);

@@ -1,7 +1,7 @@
 /**
  * Created by grantmerrill on 5/25/16.
  */
-(function($http){
+(function(){
     angular.module("WebAppMaker")
         .factory("WebsiteService", WebsiteService);
 
