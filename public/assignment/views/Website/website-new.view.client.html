@@ -1,0 +1,44 @@
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-footer">
+            <a class="navbar-brand"href="#/user/{{model.route.uid}}/website">
+                <scan class="glyphicon glyphicon-menu-left"></scan>
+            </a>
+            <a class="navbar-brand" href="website-new.view.client.html">
+                New Website
+            </a>
+            <p class="navbar-text pull-right">
+                <a ng-click="model.createWebsite(website.name)" class="navbar-link">
+                      <span class="glyphicon glyphicon-ok">
+                      </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<form>
+    <div class="form-group">
+        <label for="websitename">Name</label>
+        <input ng-model="website.name" type="text" class="form-control" id="websitename" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label for="websiteDescription">Description</label>
+        <textarea ng-model="website.description" type="text" class="form-control" id="websiteDescription" rows="10" placeholder="Description"></textarea>
+    </div>
+</form>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-footer">
+            <p class="navbar-text pull-right">
+                <a href="#/profile/{{model.route.uid}}" class="navbar-link">
+                      <span class="glyphicon glyphicon-user">
+                      </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>

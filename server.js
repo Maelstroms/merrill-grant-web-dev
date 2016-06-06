@@ -14,4 +14,11 @@ require ("./test/app.js")(app);
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP;
 var port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 
+// install, load, and configure body parser module
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+var assignment = require("./assignment/app.js");
+assignment(app);
 app.listen(port, ipaddress);

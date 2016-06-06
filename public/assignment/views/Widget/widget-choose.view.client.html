@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Widget-choose</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../../CSS/style.css">
-</head>
-<body>
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <div class="navbar-brand">
-                <a href="widget-list.html">
+                <a href="#/user/{{model.route.uid}}/website/{{model.route.wid}}/page/{{model.route.pid}}/widget">
                     <scan class="glyphicon glyphicon-menu-left"></scan>
                 </a>
                 Choose Widget
@@ -26,7 +17,7 @@
     <table class="table table-striped">
         <tbody>
         <tr>
-            <td><a href="widget-header.html">Header</a></td>
+            <td><a href="widget-header.view.client.html">Header</a></td>
         </tr>
         <tr>
             <td><a href="#">Label</a></td>
@@ -49,10 +40,10 @@
 
         </tr>
         <tr>
-            <td><a href="widget-image.html">Image</a></td>
+            <td><a href="widget-image.view.client.html">Image</a></td>
         </tr>
         <tr>
-            <td><a href="widget-youtube.html">Youtube</a></td>
+            <td><a href="widget-youtube.view.client.html">Youtube</a></td>
 
         </tr>
         <tr>
@@ -70,7 +61,7 @@
     <div class="container-fluid">
         <div class="navbar-footer">
             <p class="navbar-text pull-right">
-                <a href="../../../User/profile.html" class="navbar-link">
+                <a href="../../../views/User/profile.view.client.html" class="navbar-link">
                       <span class="glyphicon glyphicon-user">
                       </span>
                 </a>
@@ -78,5 +69,3 @@
         </div>
     </div>
 </nav>
-</body>
-</html>
