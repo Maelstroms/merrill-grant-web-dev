@@ -9,7 +9,6 @@
         vm.route = $routeParams;
         vm.createWebsite = function createWebsite(websiteName){
             var websiter = {"name":websiteName, "developerId":vm.route.uid};
-            console.log(websiter);
             WebsiteService
                 .createWebsite(vm.route.uid, websiter)
                 .then(function(response){

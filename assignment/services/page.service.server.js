@@ -13,7 +13,10 @@ module.exports = function (app) {
     app.delete("/api/page/:pageId", deletePage);
 
     function createPage(req, res) {
-        pages.push({"_id": page.id, "name": page.name, "websiteId": websiteId});
+        var pagen = req.body;
+        pagen._id = (new Date()).getTime()+"";
+        pages.push(pagen);
+        res.send(pagen);
     }
 
     function findAllPagesForWebsite(req, res) {

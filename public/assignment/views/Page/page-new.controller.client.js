@@ -3,18 +3,24 @@
         .module("WebAppMaker")
         .controller("PageNewController", PageNewController);
 
-    function PageNewController($routeParams, PageService) {
+    function PageNewController($location, $routeParams, PageService) {
         var vm = this;
         vm.route = $routeParams;
-
-        function init() {
-            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
-        }
-        init();
-
-        function newPage(){
-            WebsiteService.createWebsite(userId, website);
-            $location.url("user/"+ vm.route.uid + "/website");
+        vm.createPage = function createPage(pageName){
+            var pagen = {"name":pageName, "websiteId":vm.route.wid};
+            console.log(pagen);
+            PageService
+                .createPage(vm.route.wid, pagen)
+                .then(function(response){
+                    var page = response.data;
+                    console.log(page);
+                    if(page.websiteId){
+                        $location.url("user/"+ vm.route.uid + "/website/"+ page.websiteId+"/page");
+                    }
+                    else {
+                        vm.error = "Page failed to create";
+                    }
+                });
         }
     }
 })();
