@@ -15,10 +15,10 @@
                 .then(function(response) {
                     vm.widgets = response.data;
                 });
-            $( "#sortable" ).sortable({ axis: 'y', cursor: 'move',handle: 'glyphicon-menu-hamburger'}).disableSelection();
+
         }
         init();
-        
+
         function getSafeHtml(widget) {
             return $sce.trustAsHtml(widget.text);
         }
@@ -30,6 +30,8 @@
             return $sce.trustAsResourceUrl(url);
 
         }
+        $( ".sortable-widgets" )
+            .sortable({ axis: 'y'})
     }
 
 })();
