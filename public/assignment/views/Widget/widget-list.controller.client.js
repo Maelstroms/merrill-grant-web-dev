@@ -18,7 +18,6 @@
             $( "#sortable" ).sortable({ axis: 'y', cursor: 'move',handle: 'glyphicon-menu-hamburger'}).disableSelection();
         }
         init();
-
         
         function getSafeHtml(widget) {
             return $sce.trustAsHtml(widget.text);
