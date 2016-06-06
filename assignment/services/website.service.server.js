@@ -16,7 +16,10 @@ module.exports = function (app) {
     app.delete("/api/website/:websiteId", deleteWebsite);
 
     function createWebsite(req, res) {
-        websites.push({"_id": website._id, "name": website.name, "developerId": userId});
+        var websiter = req.body;
+        websiter._id = (new Date()).getTime()+"";
+        websites.push(websiter);
+        res.send(websiter);
     }
 
     function findAllWebsitesForUser(req, res) {
@@ -27,7 +30,6 @@ module.exports = function (app) {
                 result.push(websites[w]);
             }
         }
-
         res.send(result);
 
     }

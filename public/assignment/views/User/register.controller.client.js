@@ -15,7 +15,7 @@
                         if (user._id) {
                             $location.url("/profile/" + user._id);
                         } else {
-                            vm.error = "User not found";
+                            vm.error = "User failed to create";
                         }
                     });
             }
