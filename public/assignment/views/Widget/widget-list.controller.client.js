@@ -19,6 +19,7 @@
         }
         init();
 
+        
         function getSafeHtml(widget) {
             return $sce.trustAsHtml(widget.text);
         }
