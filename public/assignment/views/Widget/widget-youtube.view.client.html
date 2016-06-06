@@ -1,7 +1,6 @@
 <div ng-switch="model.route.wgid">
     <div ng-switch-when="undefined">
         <iframe width="{{widget.width}}" ng-src="{{model.getSafeUrl(widget)}}" frameborder="0" allowfullscreen></iframe>
-        {{model.getSafeUrl(widget)}}
     </div>
     <div ng-switch-default>
         <nav class="navbar navbar-default navbar-fixed-top">

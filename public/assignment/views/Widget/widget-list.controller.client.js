@@ -13,9 +13,9 @@
             WidgetService
                 .findWidgetsByPageId(vm.route.pid)
                 .then(function(response) {
-                    console.log(response);
                     vm.widgets = response.data;
                 });
+            $( "#sortable" ).sortable({ axis: 'y', cursor: 'move',handle: 'glyphicon-menu-hamburger'}).disableSelection();
         }
         init();
 

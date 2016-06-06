@@ -18,9 +18,9 @@
     </div>
 </nav>
 
-<div class="container">
-    <div ng-repeat="widget in model.widgets" ng-switch on="widget.widgetType">
-        <table>
+<div class="container sortable" >
+    <div class="sortable" ng-repeat="widget in model.widgets" ng-switch on="widget.widgetType">
+        <table width="100%">
             <tr>
                 <td>
                     <div ng-switch-when="HEADER">
@@ -37,10 +37,10 @@
                     </div>
                 </td>
                 <td class="pull-right">
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>
                     <a href="#/user/{{model.route.uid}}/website/{{model.route.wid}}/page/{{model.route.pid}}/widget/{{widget._id}}"
                        >
                         <span class="glyphicon glyphicon-cog"></span>
-                        <span class="glyphicon glyphicon-play"></span>
                     </a>
                 </td>
             </tr>
