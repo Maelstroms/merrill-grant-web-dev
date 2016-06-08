@@ -1,3 +1,11 @@
-/**
- * Created by grantmerrill on 6/7/16.
- */
+module.exports = function () {
+
+    var api = {
+        createPage: createPage,
+        findPageByWebsiteId: findPageByWebsiteId,
+        findPageById: findPageById,
+        updatePage: updatePage,
+        deletePage: deletePage
+    };
+    return api;
+};
