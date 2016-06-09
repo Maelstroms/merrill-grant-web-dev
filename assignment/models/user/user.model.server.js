@@ -16,11 +16,6 @@ module.exports = function() {
 
     function createUser(user) {
         return User.create(user);
-        // User.create(user, function(err, user){
-        //     model.find(funct(){
-        //         model.find
-        //     })
-        // });
     }
 
     function findUserById(userId) {

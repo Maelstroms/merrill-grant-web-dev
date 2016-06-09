@@ -6,7 +6,8 @@ module.exports = function() {
         password: String,
         firstName: String,
         lastName: String,
-        email: String,
+        emails: [String],
+        phone: [String],
         dateCreate: {type: Date, default: Date.now},
         dateUpdated: Date
     }, {collection: "assignment.user"});
