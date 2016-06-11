@@ -17,10 +17,18 @@ module.exports = function (app,models) {
     app.delete("/api/website/:websiteId", deleteWebsite);
 
     function createWebsite(req, res) {
-        var websiter = req.body;
-        websiter._id = (new Date()).getTime()+"";
-        websites.push(websiter);
-        res.send(websiter);
+        var newWebsite = req.body;
+
+        userModel
+            .createWebsite(newWebsite)
+            .then(
+                function(website) {
+                    res.json(website);
+                },
+                function(error) {
+                    res.status(400).send("Username " + newUser.username + " is already in use");
+                }
+            );
     }
 
     function findAllWebsitesForUser(req, res) {
