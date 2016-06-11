@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = function () {
     var mongoose = require("mongoose");
     var WebsiteSchema = require("./website.schema.server")();
     var Website = mongoose.model("Website", WebsiteSchema);
@@ -18,26 +18,27 @@ module.exports = function() {
 
     }
 
-    function findAllWebsitesForUser(userId){
+    function findAllWebsitesForUser(userId) {
         return Website.find({_user: userId});
     }
 
-    function findWebsiteById(websiteId){
+    function findWebsiteById(websiteId) {
         return Website.findById(websiteId);
     }
 
-    function updateWebsite(websiteId, website){
+    function updateWebsite(websiteId, website) {
         return Website.update(
             {_id: websiteId},
-            {$set :
             {
-                name: website.name,
-                description: website.description
-            }
+                $set: {
+                    name: website.name,
+                    description: website.description
+                }
             }
         );
     }
 
-    function deleteWebsite(websiteId){}
+    function deleteWebsite(websiteId) {
+    }
 
 };

@@ -13,7 +13,6 @@
                 .createWebsite(vm.route.uid, websiter)
                 .then(function(response){
                     var website = response.data;
-                    console.log(website);
                     if(website.developerId){
                         $location.url("user/"+ website.developerId + "/website");
                     }

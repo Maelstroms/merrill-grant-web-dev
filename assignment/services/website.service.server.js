@@ -1,5 +1,6 @@
 module.exports = function (app,models) {
     var websiteModel = models.websiteModel;
+    var userModel = models.userModel;
 
     var websites = [
         {"_id": "123", "name": "Facebook", "developerId": "456"},
@@ -17,10 +18,10 @@ module.exports = function (app,models) {
     app.delete("/api/website/:websiteId", deleteWebsite);
 
     function createWebsite(req, res) {
+        var userId = req.params.userId;
         var newWebsite = req.body;
-
-        userModel
-            .createWebsite(newWebsite)
+        websiteModel
+            .createWebsite(userId,newWebsite)
             .then(
                 function(website) {
                     res.json(website);

@@ -39,7 +39,8 @@ module.exports = function () {
                     lastName: newUser.lastName
                 },
                 $push: {
-                    emails: newUser.email
+                    emails: newUser.email,
+                    websites:newUser.websites
                 }
             }
         );
