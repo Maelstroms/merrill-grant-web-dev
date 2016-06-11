@@ -12,9 +12,28 @@ module.exports = function () {
     };
     return api;
 
-    function createPage(websiteId, page){}
-    function findAllPagesForWebsite(websiteId){}
-    function findPageById(pageId){}
-    function updatePage(pageId, page){}
+    function createPage(websiteId, page){
+        page._website=websiteId;
+        return Page.create(page);
+    }
+    function findAllPagesForWebsite(websiteId){
+        return Page.find({_website:websiteId});
+    }
+    function findPageById(pageId){
+        return Page.findById(pageId);
+    }
+    function updatePage(pageId, page){
+        return Page.update(
+            {_id:pageId},
+            {
+                $set: {
+                    name: page.name,
+                    description: page.description
+                }
+            }
+
+        );
+    }
+
     function deletePage(pageId){}
 };

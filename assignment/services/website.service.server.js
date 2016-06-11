@@ -20,28 +20,38 @@ module.exports = function (app,models) {
     function createWebsite(req, res) {
         var userId = req.params.userId;
         var newWebsite = req.body;
-        websiteModel
-            .createWebsite(userId,newWebsite)
-            .then(
-                function(website) {
-                    res.json(website);
-                },
-                function(error) {
-                    res.status(400).send("Username " + newUser.username + " is already in use");
-                }
-            );
+        var parentUser = userModel
+            .findUserById(userId)
+            .then(function (user) {
+                console.log(user);
+                return user;
+            });
+        console.log(parentUser);
+        // websiteModel
+        //     .createWebsite(userId,newWebsite)
+        //     .then(
+        //         function(website) {
+        //             res.json(website);
+        //         },
+        //         function(error) {
+        //             res.status(400).send("Username " + newUser.username + " is already in use");
+        //         }
+        //     );
     }
 
     function findAllWebsitesForUser(req, res) {
         var userId = req.params.userId;
-        var result = [];
-        for (var w in websites) {
-            if (websites[w].developerId === userId) {
-                result.push(websites[w]);
-            }
-        }
-        res.send(result);
 
+        websiteModel
+            .findAllWebsitesForUser(userId)
+            .then(
+                function(websites) {
+                    res.json(websites);
+                },
+                function (error) {
+                    res.status(404).send(error);
+                }
+            );
     }
 
     function findWebsiteById(req, res) {

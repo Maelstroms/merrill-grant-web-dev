@@ -14,7 +14,7 @@
                 .then(function(response){
                     var website = response.data;
                     if(website.developerId){
-                        $location.url("user/"+ website.developerId + "/website");
+                        $location.url("user/"+ vm.route.uid + "/website");
                     }
                     else {
                         vm.error = "Website failed to create";

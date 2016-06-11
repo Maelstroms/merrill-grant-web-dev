@@ -8,13 +8,21 @@ module.exports = function() {
         findWidgetsByPageId: findAllWidgetsForPage,
         findWidgetById: findWidgetById,
         updateWidget: updateWidget,
-        deleteWidget: deleteWidget
+        deleteWidget: deleteWidget,
+        reorderWidget: reorderWidget
     };
     return api;
 
-    function createWidget(pageId, widget){}
-    function findAllWidgetsForPage(pageId){}
-    function findWidgetById(widgetId){}
+    function createWidget(pageId, widget){
+        widget._page=pageId;
+        return Widget.create(widget);
+    }
+    function findAllWidgetsForPage(pageId){
+        return Widget.find({_page:pageId});
+    }
+    function findWidgetById(widgetId){
+        return Widget.findById(widgetId);
+    }
     function updateWidget(widgetId, widget){}
     function deleteWidget(widgetId){}
     function reorderWidget(pageId, start, end){}
