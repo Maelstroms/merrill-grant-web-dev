@@ -8,14 +8,4 @@ module.exports = function(app) {
     require("./services/widget.service.server.js")(app, model);
     
 
-    app.get("/users/:id", function(req, res){
-        var id = req.params.id;
-        for(var i in users) {
-            if(users[i]._id === id) {
-                res.send(users[i]);
-                return;
-            }
-        }
-        res.send({});
-    });
 };

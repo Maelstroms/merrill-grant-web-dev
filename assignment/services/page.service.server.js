@@ -1,4 +1,5 @@
-module.exports = function (app) {
+module.exports = function (app, models) {
+    var pageModel = models.pageModel;
 
     var pages = [
         {"_id": "321", "name": "Post 1", "websiteId": "456"},
