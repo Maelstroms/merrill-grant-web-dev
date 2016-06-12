@@ -20,17 +20,31 @@ module.exports = function(app, models) {
     app.delete("/api/widget/:widgetId", deleteWidget);
 
     function createWidget(req, res){
-
+        var pageId = req.params.pageId;
+        var newWidget = req.body;
+        widgetModel
+            .createWidget(pageId,newWidget)
+            .then(
+                function(widget) {
+                    res.json(widget);
+                },
+                function(error) {
+                    res.status(400).send("Username " + newUser.username + " is already in use");
+                }
+            );
     }
     function findAllWidgetsForPage(req, res){
         var pageId = req.params.pageId;
-        var result = [];
-        for(var wg in widgets) {
-            if(widgets[wg].pageId === pageId) {
-                result.push(widgets[wg]);
-            }
-        }
-        res.send(result);
+        widgetModel
+            .findAllWidgetsForPage(pageId)
+            .then(
+                function (widgets) {
+                    res.json(widgets);
+                },
+                function (error) {
+                    res.status(404).send(error);
+                }
+            );
     }
     function findWidgetById(req, res){
         var id = req.params.widgets;

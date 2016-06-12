@@ -5,7 +5,7 @@ module.exports = function() {
 
     var api = {
         createWidget: createWidget,
-        findWidgetsByPageId: findAllWidgetsForPage,
+        findAllWidgetsForPage: findAllWidgetsForPage,
         findWidgetById: findWidgetById,
         updateWidget: updateWidget,
         deleteWidget: deleteWidget,
