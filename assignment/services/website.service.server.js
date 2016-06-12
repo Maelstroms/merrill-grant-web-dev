@@ -1,4 +1,4 @@
-module.exports = function (app,models) {
+module.exports = function (app, models) {
     var websiteModel = models.websiteModel;
     var userModel = models.userModel;
 
@@ -20,10 +20,12 @@ module.exports = function (app,models) {
     function createWebsite(req, res) {
         var userId = req.params.userId;
         var newWebsite = req.body;
-        var parentUser = userModel
+        var parentUser;
+        userModel
             .findUserById(userId)
             .then(function (user) {
                 console.log(user);
+                parentUser = user.data;
                 return user;
             });
         console.log(parentUser);
@@ -45,7 +47,7 @@ module.exports = function (app,models) {
         websiteModel
             .findAllWebsitesForUser(userId)
             .then(
-                function(websites) {
+                function (websites) {
                     res.json(websites);
                 },
                 function (error) {
