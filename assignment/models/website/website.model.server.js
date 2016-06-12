@@ -13,13 +13,13 @@ module.exports = function () {
     return api;
 
     function createWebsiteForUser(userId, website) {
-        website._user = userId;
+        websitedeveloperId = userId;
         return Website.create(website);
 
     }
 
     function findAllWebsitesForUser(userId) {
-        return Website.find({_user: userId});
+        return Website.find({developerId: userId});
     }
 
     function findWebsiteById(websiteId) {

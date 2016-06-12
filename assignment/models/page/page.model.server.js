@@ -5,7 +5,7 @@ module.exports = function () {
 
     var api = {
         createPage: createPage,
-        findPageByWebsiteId: findAllPagesForWebsite,
+        findAllPagesForWebsite: findAllPagesForWebsite,
         findPageById: findPageById,
         updatePage: updatePage,
         deletePage: deletePage

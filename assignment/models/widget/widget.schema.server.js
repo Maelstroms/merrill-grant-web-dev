@@ -19,7 +19,7 @@ module.exports = function() {
         formatted: Boolean,
         dateCreate: {type: Date, default: Date.now},
         dateUpdated: Date
-    }, {collection: "assignment.website"});
+    }, {collection: "assignment.widget"});
 
     return WidgetSchema
 };

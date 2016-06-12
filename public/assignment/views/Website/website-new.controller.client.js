@@ -13,9 +13,9 @@
                 .createWebsite(vm.route.uid, websiter)
                 .then(function (response) {
                     var website = response.data;
-                    var parentUser = website._user;
+                    var parentUser = website.developerId;
                     if (parentUser) {
-                        updateUser = {_id: parentUser, websites: [website._id]};
+                        updateUser = {_id: parentUser, websites: website._id};
                         UserService
                             .updateUser(parentUser, updateUser)
                             .then(
