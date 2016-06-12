@@ -5,7 +5,7 @@ module.exports = function () {
 
     var api = {
         createWebsite: createWebsiteForUser,
-        findWebsitesForUser: findAllWebsitesForUser,
+        findAllWebsitesForUser: findAllWebsitesForUser,
         findWebsiteById: findWebsiteById,
         updateWebsite: updateWebsite,
         deleteWebsite: deleteWebsite
