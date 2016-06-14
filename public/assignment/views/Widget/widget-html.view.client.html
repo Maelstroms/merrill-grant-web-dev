@@ -1,0 +1,54 @@
+<div ng-switch="model.route.wgid">
+    <div ng-switch-when="undefined">
+        <img src="{{widget.url}}" width="{{widget.width}}"/>
+    </div>
+    <div ng-switch-default>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-footer">
+                    <a class="navbar-brand" href="widget-list.view.client.html">
+                        <scan class="glyphicon glyphicon-menu-left"></scan>
+                    </a>
+                    <a class="navbar-brand" href="#">
+                        Widget Edit
+                    </a>
+                    <p class="navbar-text pull-right">
+                        <a href="widget-list.view.client.html" class="navbar-link">
+                      <span class="glyphicon glyphicon-ok">
+                      </span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </nav>
+
+        <div class="input-group">
+            <input type="text" class="form-control" aria-label="...">
+      <span class="input-group-addon">
+        <input type="checkbox" aria-label="...">
+      </span>
+        </div>
+
+        <div text-angular ng-model="model.html"
+             ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],['ul','ol'], ['justifyLeft','justifyCenter','justifyRight','justifyFull'],['indent','outdent'],['html']]"></div>
+
+        <div>
+            {{model.html}}
+        </div>
+
+        <div ng-bind-html="model.html"></div>
+
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container-fluid">
+                <div class="navbar-footer">
+                    <p class="navbar-text pull-right">
+                        <a href="../../../views/User/profile.view.client.html" class="navbar-link">
+                      <span class="glyphicon glyphicon-user">
+                      </span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

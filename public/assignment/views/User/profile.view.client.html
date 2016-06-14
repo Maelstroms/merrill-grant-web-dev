@@ -5,7 +5,7 @@
                 Profile
             </a>
             <p class="navbar-text pull-right">
-                <a ng-click="model.updateUser()" class="navbar-link">
+                <a ng-click="model.updateUser({firstName: model.user.firstName,lastName: model.user.lastName,email: model.user.email})" class="navbar-link">
                   <span class="glyphicon glyphicon-ok">
                   </span>
                 </a>
@@ -63,4 +63,6 @@
        href="#/user/{{model.route.uid}}/website">Websites</a>
     <a class="btn btn-danger btn-block"
        href="#/login">Logout</a>
+    <a class="btn btn-danger btn-block"
+       href="model.unregister()">Unregister</a>
 </div>

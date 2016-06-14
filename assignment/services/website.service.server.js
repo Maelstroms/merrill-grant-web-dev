@@ -1,13 +1,5 @@
-module.exports = function (app) {
-
-    var websites = [
-        {"_id": "123", "name": "Facebook", "developerId": "456"},
-        {"_id": "234", "name": "Tweeter", "developerId": "456"},
-        {"_id": "456", "name": "Gizmodo", "developerId": "456"},
-        {"_id": "567", "name": "Tic Tac Toe", "developerId": "123"},
-        {"_id": "678", "name": "Checkers", "developerId": "123"},
-        {"_id": "789", "name": "Chess", "developerId": "234"}
-    ];
+module.exports = function (app, models) {
+    var websiteModel = models.websiteModel;
 
     app.post("/api/user/:userId/website", createWebsite);
     app.get("/api/user/:userId/website", findAllWebsitesForUser);
@@ -16,22 +8,33 @@ module.exports = function (app) {
     app.delete("/api/website/:websiteId", deleteWebsite);
 
     function createWebsite(req, res) {
-        var websiter = req.body;
-        websiter._id = (new Date()).getTime()+"";
-        websites.push(websiter);
-        res.send(websiter);
+        var userId = req.params.userId;
+        var newWebsite = req.body;
+        websiteModel
+            .createWebsite(userId,newWebsite)
+            .then(
+                function(website) {
+                    res.json(website);
+                },
+                function(error) {
+                    res.status(400).send("Username " + newUser.username + " is already in use");
+                }
+            );
     }
 
     function findAllWebsitesForUser(req, res) {
         var userId = req.params.userId;
-        var result = [];
-        for (var w in websites) {
-            if (websites[w].developerId === userId) {
-                result.push(websites[w]);
-            }
-        }
-        res.send(result);
 
+        websiteModel
+            .findAllWebsitesForUser(userId)
+            .then(
+                function (websites) {
+                    res.json(websites);
+                },
+                function (error) {
+                    res.status(404).send(error);
+                }
+            );
     }
 
     function findWebsiteById(req, res) {
@@ -46,13 +49,18 @@ module.exports = function (app) {
     }
 
     function updateWebsite(req, res) {
-        for (var i in websites) {
-            if (websites[i]._id === websiteId) {
-                websites[i].name = website.name;
-                return true;
-            }
-        }
-        return false;
+        var id = req.params.websiteId;
+        var newWebsite = req.body;
+        websiteModel
+            .updateWebsite(id, newWebsite)
+            .then(
+                function(website) {
+                    res.json(website);
+                },
+                function(error) {
+                    res.status(404).send("Unable to update user with ID: " + id);
+                }
+            );
     }
 
     function deleteWebsite(req, res) {

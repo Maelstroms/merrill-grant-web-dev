@@ -1,10 +1,6 @@
-module.exports = function (app) {
+module.exports = function (app, models) {
+    var pageModel = models.pageModel;
 
-    var pages = [
-        {"_id": "321", "name": "Post 1", "websiteId": "456"},
-        {"_id": "432", "name": "Post 2", "websiteId": "456"},
-        {"_id": "543", "name": "Post 3", "websiteId": "456"}
-    ];
 
     app.post("/api/website/:websiteId/page", createPage);
     app.get("/api/website/:websiteId/page", findAllPagesForWebsite);
@@ -13,28 +9,39 @@ module.exports = function (app) {
     app.delete("/api/page/:pageId", deletePage);
 
     function createPage(req, res) {
-        var pagen = req.body;
-        pagen._id = (new Date()).getTime()+"";
-        pages.push(pagen);
-        res.send(pagen);
+        var websiteId = req.params.websiteId;
+        var newPage = req.body;
+        pageModel
+            .createPage(websiteId,newPage)
+            .then(
+                function(page) {
+                    res.json(page);
+                },
+                function(error) {
+                    res.status(400).send("Username " + newUser.username + " is already in use");
+                }
+            );
     }
 
     function findAllPagesForWebsite(req, res) {
         var websiteId = req.params.websiteId;
-        var result = [];
-        for (var p in pages) {
-            if (pages[p].websiteId === websiteId) {
-                result.push(pages[p]);
-            }
-        }
-        res.send(result);
+        pageModel
+            .findAllPagesForWebsite(websiteId)
+            .then(
+                function (pages) {
+                    res.json(pages);
+                },
+                function (error) {
+                    res.status(404).send(error);
+                }
+            );
     }
 
     function findPageById(req, res) {
         var id = req.params.pageId;
-        for (var i in pages) {
-            if (pages[i]._id === id) {
-                res.send(pages[i]);
+        for (var i in websites) {
+            if (websites[i]._id === id) {
+                res.send(websites[i]);
                 return;
             }
         }
@@ -42,13 +49,18 @@ module.exports = function (app) {
     }
 
     function updatePage(req, res) {
-        for (var i in pages) {
-            if (pages[i]._id === pageId) {
-                pages[i].name = page.name;
-                return true;
-            }
-        }
-        return false;
+        var id = req.params.pageId;
+        var newPage = req.body;
+        websiteModel
+            .updateWebsite(id, newPage)
+            .then(
+                function(page) {
+                    res.json(page);
+                },
+                function(error) {
+                    res.status(404).send("Unable to update user with ID: " + id);
+                }
+            );
     }
 
     function deletePage(req, res) {

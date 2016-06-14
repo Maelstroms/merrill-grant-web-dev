@@ -1,5 +1,5 @@
 <div ng-switch="model.route.wgid">
-    <div ng-switch-when="undefined">
+    <div ng-switch-when="undefined" class="youtube-widget">
         <iframe width="{{widget.width}}" ng-src="{{model.getSafeUrl(widget)}}" frameborder="0" allowfullscreen></iframe>
     </div>
     <div ng-switch-default>
