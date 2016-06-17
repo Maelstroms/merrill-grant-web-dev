@@ -63,6 +63,10 @@ module.exports = function(app,models) {
             );
     }
 
+    function register() {
+
+    }
+
     function login(req, res) {
         var user = req.user;
         res.json(user);
