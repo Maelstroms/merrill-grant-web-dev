@@ -8,7 +8,7 @@ module.exports = function(app,models) {
 
     app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
     app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
-    app.post  ('/api/login', passport.authenticate('local'), login);
+    app.post  ('/api/login', passport.authenticate('wam'), login);
     app.post  ('/api/logout',         logout);
     app.post  ('/api/register',       register);
     app.post  ('/api/user',     auth, createUser);
@@ -16,7 +16,6 @@ module.exports = function(app,models) {
 
     app.post("/api/user", createUser);
     app.get("/api/user", getUsers);
-    app.get("/api/user", findUserByCredentials);
     app.get("/api/user/:userId", findUserById);
     app.put("/api/user/:userId", updateUser);
     app.delete("/api/user/:userId", deleteUser);
@@ -138,11 +137,10 @@ module.exports = function(app,models) {
                         return;
                     } else {
                         req.body.password = bcrypt.hashSync(password);
+                        res.send(200);
                         return userModel
                             .createUser(req.body);
                     }
-                    console.log(user);
-                    res.send(200);
                 },
                 function(error) {
                     res.status(400).send(error);

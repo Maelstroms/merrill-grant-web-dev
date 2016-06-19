@@ -6,20 +6,26 @@
         .module("WebAppMaker")
         .controller("LoginController", LoginController);
 
-    function LoginController($location, UserService) {
+    function LoginController($location, $rootScope, UserService) {
         var vm = this;
 
-        vm.login = function (username, password) {
+        vm.login = function login (username, password) {
             UserService
-                .findUserByUsernameAndPassword(username, password)
-                .then(function (response) {
-                    var user = response.data;
-                    if (user._id) {
-                        $location.url("/profile/" + user._id);
-                    } else {
+                .login(username, password)
+                .then(
+                    function(response) {
+                        console.log(response);
+                        var user = response.data;
+                        if(user) {
+                            $rootScope.currentUser = user;
+                            var id = user._id;
+                            $location.url("/profile/" + id);
+                        }
+                    },
+                    function (error) {
                         vm.error = "User not found";
                     }
-                });
+                );
         }
     }
 })();
