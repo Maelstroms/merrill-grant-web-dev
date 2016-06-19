@@ -6,6 +6,8 @@ module.exports = function(app,models) {
     var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
     var FacebookStrategy = require('passport-facebook').Strategy;
 
+    app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+    app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
     app.post  ('/api/login', passport.authenticate('local'), login);
     app.post  ('/api/logout',         logout);
     app.post  ('/api/register',       register);
@@ -19,6 +21,37 @@ module.exports = function(app,models) {
     app.put("/api/user/:userId", updateUser);
     app.delete("/api/user/:userId", deleteUser);
 
+    app.get('/auth/facebook/callback',
+        passport.authenticate('facebook', {
+            successRedirect: '/#/profile',
+            failureRedirect: '/#/login'
+        }));
+    app.get('/auth/google/callback',
+        passport.authenticate('google', {
+            successRedirect: '/#/profile',
+            failureRedirect: '/#/login'
+        }));
+
+    var facebookConfig = {
+        clientID     : process.env.FACEBOOK_CLIENT_ID,
+        clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+        callbackURL  : process.env.FACEBOOK_CALLBACK_URL
+    };
+
+    var googleConfig = {
+        clientID     : process.env.GOOGLE_CLIENT_ID,
+        clientSecret : process.env.GOOGLE_CLIENT_SECRET,
+        callbackURL  : process.env.GOOGLE_CALLBACK_URL
+    };
+
+    passport.use('wam', new LocalStrategy(localStrategy));
+    passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
+    passport.use(new GoogleStrategy(googleConfig, googleStrategy));
+    passport.serializeUser(serializeUser);
+    passport.deserializeUser(deserializeUser);
+
+
+
     function authorized (req, res, next) {
         if (!req.isAuthenticated()) {
             res.send(401);
@@ -26,10 +59,6 @@ module.exports = function(app,models) {
             next();
         }
     };
-
-    passport.use('wam', new LocalStrategy(localStrategy));
-    passport.serializeUser(serializeUser);
-    passport.deserializeUser(deserializeUser);
 
     function serializeUser(user, done) {
         done(null, user);
@@ -65,8 +94,76 @@ module.exports = function(app,models) {
             );
     }
 
-    function register() {
+    function facebookStrategy(token, refreshToken, profile, done) {
+        var id = profile.id;
+        userModel
+            .findUserByFacebookId(id)
+            .then(
+                function(user) {
+                    if(user) {
+                        return done(null, user);
+                    } else {
+                        var user = {
+                            username: profile.displayName.replace(/ /g, ''),
+                            facebook: {
+                                id: profile.id,
+                                displayName: profile.displayName
+                            }
+                        }
+                        return userModel
+                            .createUser(user);
+                    }
+                }
+            )
+            .then(
+                function (user) {
+                    return done(null, user);
+                }
+            );
+    }
 
+    function googleStrategy(token, refreshToken, profile, done) {
+
+    }
+
+    function register(req, res) {
+        var username = req.body.username;
+        var password = req.body.password;
+        userModel
+            .findUserByUsername(username)
+            .then(
+                function(user) {
+                    if(user) {
+                        res.status(400).send("Username already exists");
+                        return;
+                    } else {
+                        req.body.password = bcrypt.hashSync(password);
+                        return userModel
+                            .createUser(req.body);
+                    }
+                    console.log(user);
+                    res.send(200);
+                },
+                function(error) {
+                    res.status(400).send(error);
+                }
+            )
+            .then(
+                function(user) {
+                    if(user){
+                        req.login(user, function(err) {
+                            if(err) {
+                                res.status(400).send(err);
+                            } else {
+                                res.json(user);
+                            }
+                        });
+                    }
+                },
+                function(error) {
+                    res.status(400).send(error);
+                }
+            )
     }
 
     function login(req, res) {

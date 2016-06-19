@@ -8,9 +8,10 @@ module.exports = function() {
         lastName: String,
         emails: [String],
         phone: [String],
-        acebook: {
+        facebook: {
             id:    String,
-            token: String
+            token: String,
+            displayName: String
         },
         websites:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Website' }],
         dateCreate: {type: Date, default: Date.now},
