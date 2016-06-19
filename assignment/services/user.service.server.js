@@ -3,6 +3,8 @@ module.exports = function(app,models) {
     var passport      = require('passport');
     var LocalStrategy = require('passport-local').Strategy;
     var auth = authorized;
+    var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+    var FacebookStrategy = require('passport-facebook').Strategy;
 
     app.post  ('/api/login', passport.authenticate('local'), login);
     app.post  ('/api/logout',         logout);

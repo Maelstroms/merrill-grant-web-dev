@@ -5,10 +5,12 @@
   "main": "server.js",
   "dependencies": {
     "angular-route": "^1.5.7",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "mongoose": "^4.4.15",
     "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0"
   },
