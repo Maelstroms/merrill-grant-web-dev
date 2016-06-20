@@ -14,7 +14,6 @@
                 .login(username, password)
                 .then(
                     function(response) {
-                        console.log(response);
                         var user = response.data;
                         if(user) {
                             $rootScope.currentUser = user;

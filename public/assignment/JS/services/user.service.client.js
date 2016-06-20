@@ -59,7 +59,6 @@
         }
         function findUserByUsernameAndPassword(username, password) {
             var url = "/api/user?username="+username+"&password="+password;
-            console.log($http.get(url));
             return $http.get(url);
         }
         function findUserById(id) {

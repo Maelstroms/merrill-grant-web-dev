@@ -5,6 +5,7 @@ module.exports = function(app,models) {
     var auth = authorized;
     var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
     var FacebookStrategy = require('passport-facebook').Strategy;
+    var bcrypt = require("bcrypt-nodejs");
 
     app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
     app.get ('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
@@ -78,10 +79,10 @@ module.exports = function(app,models) {
 
     function localStrategy(username, password, done) {
         userModel
-            .findUserByCredentials(username, password)
+            .findUserByUsername(username)
             .then(
                 function(user) {
-                    if(user.username === username && user.password === password) {
+                    if(user && bcrypt.compareSync(password, user.password)) {
                         return done(null, user);
                     } else {
                         return done(null, false);
@@ -166,6 +167,7 @@ module.exports = function(app,models) {
 
     function login(req, res) {
         var user = req.user;
+        console.log(user);
         res.json(user);
     }
 
