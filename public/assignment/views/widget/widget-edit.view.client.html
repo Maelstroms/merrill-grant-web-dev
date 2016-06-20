@@ -1,4 +1,5 @@
 <div ng-switch="widget.widgetType">
+    <form novalidate class="css-form">
     <div ng-switch-when="HEADING">
         <ng-include src="'views/widget/widget-heading.view.client.html'"></ng-include>
     </div>
@@ -8,4 +9,5 @@
     <div ng-switch-when="YOUTUBE">
         <ng-include src="'views/widget/widget-youtube.view.client.html'"></ng-include>
     </div>
+        </form>
 </div>
