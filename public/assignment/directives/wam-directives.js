@@ -1,10 +1,24 @@
-(function(){
+(function () {
     angular
         .module("wamDirectives", [])
-        .directive("helloWorld", helloWorld)
-        .directive("list", list)
         .directive("myTable", myTable)
+        .directive('pwCheck', pwCheck)
 
+    function pwCheck() {
+        return {
+            require: 'ngModel',
+            link: function (scope, elem, attrs, ctrl) {
+                var firstPassword = '#' + attrs.pwCheck;
+                $(elem).add(firstPassword).on('keyup', function () {
+                    scope.$apply(function () {
+                        var v = elem.val()===$(firstPassword).val();
+                        ctrl.$setValidity('pwmatch', v);
+                    });
+                });
+            }
+        }
+    }
+    
     function myTable() {
         function linker(scope, element, attributes) {
             var data = scope.data;
@@ -13,7 +27,7 @@
             $(element)
                 .find("tbody")
                 .sortable({
-                    start: function(event, ui) {
+                    start: function (event, ui) {
                         console.log("sorting began");
                         startIndex = ui.item.index();
                         console.log(startIndex);
@@ -34,27 +48,18 @@
                     }
                 });
         }
+
         return {
             templateUrl: "myTable.html",
             scope: {
-                title:  "=",
+                title: "=",
                 border: "=",
-                data:   "=",
+                data: "=",
                 reorder: "&sorted"
             },
             link: linker
         }
     }
 
-    function list() {
-        return {
-            template: "<ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>"
-        }
-    }
 
-    function helloWorld() {
-        return {
-            template: "<h3>Hello World</h3>"
-        };
-    }
 })();

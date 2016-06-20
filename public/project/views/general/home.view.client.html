@@ -1,0 +1,40 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-head">
+            <a class="navbar-brand" href="">
+                TV Tracker
+            </a>
+            <p class="navbar-text pull-right">
+                <a href="#/login" class="btn btn-primary">Login</a>
+            </p>
+            <p class="navbar-text pull-right">
+                <a href="#/register" class="btn btn-primary">Register</a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="shows">
+        <div class="trending-shows">
+            <carousel>
+                <slide ng-repeat="show in model.popShows" active="slide.active">
+                    <div class="" style="width:600px;margin:auto;">
+                        <div >
+                            <img ng-src="{{slide.image}}" width="200px" style="float:left;">
+                        </div>
+                        <div >
+                            <img ng-src="{{slides[getSecondIndex($index+1)].image}}" width="200px" style="float:left;" >
+                        </div>
+                        <div >
+                            <img ng-src="{{slides[getSecondIndex($index+2)].image}}" width="200px" style="float:left;" >
+                        </div>
+                    </div>
+                </slide>
+            </carousel>
+        </div>
+        <div class="currentShows">
+
+        </div>
+    </div>
+</div>
