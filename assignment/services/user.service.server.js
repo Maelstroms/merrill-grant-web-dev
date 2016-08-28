@@ -58,7 +58,7 @@ module.exports = function(app,models) {
         } else {
             next();
         }
-    };
+    }
 
     function serializeUser(user, done) {
         done(null, user);
@@ -107,7 +107,8 @@ module.exports = function(app,models) {
                             username: profile.displayName.replace(/ /g, ''),
                             facebook: {
                                 id: profile.id,
-                                displayName: profile.displayName
+                                displayName: profile.displayName,
+                                token: token
                             }
                         }
                         return userModel

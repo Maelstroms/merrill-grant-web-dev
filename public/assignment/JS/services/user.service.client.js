@@ -35,6 +35,7 @@
                 username: username,
                 password: password
             };
+            console.log($http.post(url, user));
             return $http.post(url, user);
         }
         function register(username, password) {
