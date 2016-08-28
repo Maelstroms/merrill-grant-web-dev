@@ -1,0 +1,22 @@
+table.header{
+    margin-left:auto; 
+    margin-right:auto;
+}
+table.header tr{
+    height: 50px;
+    margin:auto;
+    background-color: #FF0000;
+    
+}
+table.header tr td{
+    width:120px;
+    text-align:center;
+    border-color: #6495ED;
+    background-color: #BCD2EE;
+    border-radius:5px;
+}
+table.header a{
+    text-decoration:none;
+    color:black;
+    font-family:Times;
+}
